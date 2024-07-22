@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
         element: <AdminLayout/>,
         children: [
             {
-                path: "Reviews",
+                path: "",
                 element: <Reviews/>
             },
             {
@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
         element: <ClientLayout/>,
         children: [
             {
-                path: "HomePage",
+                path: "",
                 element: <HomePage/>
             },
             
