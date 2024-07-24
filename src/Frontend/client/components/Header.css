@@ -1,0 +1,164 @@
+.nav-buttons {
+  width: 100%;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: relative;
+  gap: 5px;
+}
+
+.nav-buttons2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #212936;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.nav-button2-container-about .dropdown-content {
+  left: -17px;
+}
+
+.dropdown-content a {
+  height: 35px;
+  color: #ffffff;
+  padding-inline: 10px;
+  padding-bottom: 0;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: #1C232E;
+  color: #fff;
+}
+
+.nav-button2-container-about:hover .dropdown-content {
+  left: -17px;
+}
+
+.nav-button2-container .dropdown-content {
+  display: block;
+}
+
+.nav-button {
+  color: #49DCFF;
+  background: none;
+  border: none;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: color 0.2s;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  transition: 0.2s ease-in-out;
+}
+
+.nav-button:hover {
+  background-color: #212936;
+  border-radius: 5px;
+  transform: scale(1.05);
+}
+
+.nav-button.active {
+  color: #fff;
+}
+
+.nav-button2 {
+  transition: 0.2s ease-in-out ;
+  padding-inline: 12px;
+  transition: 0.2s ease-in-out;
+}
+
+.nav-button2:hover {
+  border-radius: 5px;
+  background-color: #1e2632;
+  transform: scale(1.05);
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background-color: #49DCFF;
+  transition: left 0.2s ease-in-out, width 0.2s ease-in-out;
+  width: 20%;
+}
+
+.underline2 {
+  position: absolute;
+  bottom: 0;
+  height: 1px;
+  background-color: #49DCFF;
+  transition: left 0.2s ease-in-out, width 0.2s ease-in-out;
+  width: 24%;
+}
+
+.search-box {
+  position: relative;
+  background: none;
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out;
+  width: 40px;
+}
+
+.search-box.open {
+  width: 42%; 
+  background-color: #3a4350;
+}
+
+.search-text {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  font-size: 16px;
+  font-weight: normal;
+  transition: width 0.4s ease-in-out;
+  width: 0px; 
+}
+
+.search-box.open .search-text {
+  width: 200px; 
+  padding: 0 6px;
+}
+
+.lupa {
+  width: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.lupa.active {
+  transform: scale(1.1);
+}
+
+.lupa:hover {
+  transform: scale(1.1);
+}
+
+.select-box {
+  color: #49DCFF;
+  background-color: transparent;
+  border: none;
+}
+
+.select-box option {
+  background-color: #212936;
+  color: #49DCFF;
+}

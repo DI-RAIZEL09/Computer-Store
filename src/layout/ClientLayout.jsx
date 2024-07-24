@@ -16,12 +16,12 @@ export const ClientLayout = () => {
 }
 
 const BodyClientLayout = styled('body')(() => ({
-  backgroundColor: "var(--bg-dark-blue)"
+  backgroundColor: "var(--bg-dark-blue)",
 }))
 
 const ClientLayoutContainer = styled('div')(() => ({
   color: "var(--bg-light)",
-  width: '1440px',
+  // width: '1440px',
   margin: '0 auto',
   backgroundColor: "var(--bg-dark-gray)",
 }))
