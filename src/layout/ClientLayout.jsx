@@ -7,15 +7,15 @@ export const ClientLayout = () => {
   return (
     <BodyClientLayout>
     <ClientLayoutContainer>
-        <Header/>
-        <Outlet/>
-        <Footer/>
+          <Header/>
+          <Outlet/>
+          <Footer/>
     </ClientLayoutContainer>
     </BodyClientLayout>
   )
 }
 
-const BodyClientLayout = styled('body')(() => ({
+const BodyClientLayout = styled('div')(() => ({
   backgroundColor: "var(--bg-dark-blue)",
 }))
 
