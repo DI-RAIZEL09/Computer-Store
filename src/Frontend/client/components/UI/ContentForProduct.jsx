@@ -288,7 +288,7 @@ export const ContentForProduct = () => {
         <a className=" bg-[#2e3d52] rounded-md px-3 text-[#49DCFF] whitespace-nowrap" href="">смотреть все</a>
       </div>
 
-      <div className=" w-full grid mobale:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-4 desktop:grid-cols-4  gap-7 pt-7">
+      <div className=" w-full mt-10 grid mobale:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-4 desktop:grid-cols-4  gap-7 pt-7">
         {data.map((item, index) => (
           <div key={index} className=" w-full h-fit flex flex-col items-start justify-start relative pb-5 bg-[#1C232E]">
             

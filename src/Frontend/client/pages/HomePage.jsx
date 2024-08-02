@@ -20,7 +20,7 @@ const HomePage = () => {
     <div>
       <TabsText>{headers[activeTab]}</TabsText>
       <TabsUI titles={titles} onTabChange={setActiveTab}>
-        <div>
+        <div className=' mt-10'>
           <Recommendations/>
           <div className=' mt-[100px]'><ContentForProduct/></div>
         </div>
