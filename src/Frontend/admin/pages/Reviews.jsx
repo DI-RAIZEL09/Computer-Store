@@ -1,7 +1,7 @@
 {/* Отзывы */}
 const Reviews = () => {
   return (
-    <div>Reviews</div>
+    <div className=" h-[3000px]">Reviews</div>
   )
 }
 

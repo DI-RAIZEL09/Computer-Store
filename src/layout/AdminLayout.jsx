@@ -18,7 +18,8 @@ export const AdminLayout = () => {
 };
 
 const BodyAdminLayout = styled('body')(() => ({
-  backgroundImage: "url('./assets/image/Keyboard.jpg')",
+  // backgroundImage: "url('./assets/image/Keyboard.jpg')",
+  background: "var(--bg-dark)",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
 }));
