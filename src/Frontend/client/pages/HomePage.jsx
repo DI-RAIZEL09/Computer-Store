@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import TabsUI from '../components/UI/TabsUI';
 import styled from 'styled-components';
+import OurAdvant from '../components/OurAdvant';
+import OurComp from '../components/OurComp';
 
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -21,12 +23,15 @@ const HomePage = () => {
         <div>
           <h2>Ноутбуки</h2>
           <p>Контент для вкладки Ноутбуки.</p>
+          
         </div>
         <div>
           <h2>ПК</h2>
           <p>Контент для вкладки ПК.</p>
         </div>
       </TabsUI>
+      <OurAdvant/>
+      <OurComp/>
     </div>
   );
 };

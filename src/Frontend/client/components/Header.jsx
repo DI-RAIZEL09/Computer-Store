@@ -55,7 +55,7 @@ const Header = () => {
   const subMenuLinks = {'О нас ⁝': ['CompanyPage', 'FAQPage', 'ReviewsPage'],};
 
   return (
-    <div className='flex flex-col sticky top-0'>
+    <div className='flex flex-col sticky top-0 z-50'>
       <div className='flex flex-row items-center justify-between bg-[#212936] px-14 py-4'>
         <div className='flex flex-row items-center gap-14'>
           <Link to='HomePage' onClick={handleLogoClick}><img className='h-[50px] pl-[30px]' src={logo} alt="" /></Link>
