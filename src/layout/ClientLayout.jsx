@@ -7,21 +7,21 @@ export const ClientLayout = () => {
   return (
     <BodyClientLayout>
     <ClientLayoutContainer>
-        <Header/>
-        <Outlet/>
-        <Footer/>
+          <Header/>
+          <Outlet/>
+          <Footer/>
     </ClientLayoutContainer>
     </BodyClientLayout>
   )
 }
 
-const BodyClientLayout = styled('body')(() => ({
+const BodyClientLayout = styled('div')(() => ({
   backgroundColor: "var(--bg-dark-blue)",
 }))
 
 const ClientLayoutContainer = styled('div')(() => ({
   color: "var(--bg-light)",
-  // width: '1440px',
+  maxWidth: '1440px',
   margin: '0 auto',
   backgroundColor: "var(--bg-dark-gray)",
 }))
