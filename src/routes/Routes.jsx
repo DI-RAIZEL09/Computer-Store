@@ -1,6 +1,6 @@
-import { createBrowserRouter } from "react-router-dom";
-import { AdminLayout } from "../layout/AdminLayout";
-import { ClientLayout } from "../layout/ClientLayout";
+import {createBrowserRouter} from "react-router-dom";
+import {AdminLayout} from "../layout/AdminLayout";
+import {ClientLayout} from "../layout/ClientLayout";
 
 import Reviews from "../Frontend/admin/pages/Reviews";
 import Orders from "../Frontend/admin/pages/Orders";
@@ -17,6 +17,7 @@ import ArticlesPage from "../Frontend/client/pages/HeaderPage/ArticlesPage";
 import AboutPage from "../Frontend/client/pages/HeaderPage/AboutPage";
 import ClientsPage from "../Frontend/client/pages/HeaderPage/ClientsPage";
 import ContactsPage from "../Frontend/client/pages/HeaderPage/ContactsPage";
+import Carousel from "../Frontend/client/components/Carousel.jsx";
 
 
 export const router = createBrowserRouter([
@@ -48,9 +49,10 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "",
-                element: <HomePage/>
+                element: <HomePage/>,
             },
-            
+
+
             /* HeaderPage */
             {
                 path: "ArticlesPage",
@@ -90,6 +92,7 @@ export const router = createBrowserRouter([
                 path: "BasedAmdPage",
                 element: <BasedAmdPage/>
             },
+
         ]
     },
 ])

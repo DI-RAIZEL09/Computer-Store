@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TabsUI from '../components/UI/TabsUI';
 import styled from 'styled-components';
+import Carousel from "../components/Carousel.jsx";
 
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -16,6 +17,7 @@ const HomePage = () => {
 
   return (
     <div>
+      <Carousel />
       <TabsText>{headers[activeTab]}</TabsText>
       <TabsUI titles={titles} onTabChange={setActiveTab}>
         <div>
