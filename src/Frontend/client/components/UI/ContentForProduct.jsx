@@ -322,20 +322,6 @@ export const ContentForProduct = () => {
         },
       ]
     },
-    {
-      id: 1,
-      img: "../../../../public/assets/svg/pc.svg",
-      title: "EDELWEISS GLADIATOR",
-      price: "129 900",
-      text: "Игровой компьютер последнего поколения EDELWEISS GLADIATOR, топовый процессор intel i5 в связке с большим объёмом памяти и быстрым SSD накопителем, обеспечивают беспрецедентную производительность на высоких настройках графики и достойный показатель FPS.  ",
-      spares: [
-        {
-          icon: "../../../../../public/assets/svg/spares/graphic.svg",
-          title: "Видео-карта",
-          name: "PALIT NVIDIA GЕFORCE RTX 4060 8Гб"
-        },
-      ]
-    },
   ]
   
   return (
