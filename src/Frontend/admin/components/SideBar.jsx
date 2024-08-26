@@ -113,12 +113,12 @@ const SideBar = () => {
     setActiveSide(index);
   };
   return (
-    <div className=" bg-[#21252B] h-screen flex flex-col items-start justify-start px-5 gap-[150px] border border-[#49DCFF]">
+    <div className=" bg-[#21252bbc] h-screen flex flex-col items-start justify-start px-5 gap-[150px] border-r border-l border-[#49DCFF]">
       <img src="/public/assets/svg/adminLogo.svg" alt="logo" className=" object-cover pt-7"/>
       <nav className=" w-full">
         <ul className=" w-full">
           {titles.map((title, index) => (
-            <li key={index} className=" w-full py-2 flex justify-start">
+            <li key={index} className=" w-full py-2 flex justify-start hover:scale-105 hover:transition hover:duretion-300 hover:ease-out">
               <Link
                 to={`/admin/${title.label.toLowerCase()}`}
                 className={` w-full flex items-center justify-between p-3 rounded-lg transition-all ${
@@ -133,9 +133,9 @@ const SideBar = () => {
           ))}
         </ul>
       </nav>
-      <div className=" flex items-center gap-3">
+      <div className=" flex items-center gap-3 hover:scale-105 hover:transition hover:duretion-300 hover:ease-out cursor-pointer">
         <img src={logout} alt="logout" />
-        <p className=" text-[#49DCFF]">Выйти</p>
+        <p className=" text-[#49DCFF] ">Выйти</p>
       </div>
     </div>
   )

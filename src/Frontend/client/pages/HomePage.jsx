@@ -3,6 +3,7 @@ import TabsUI from '../components/UI/TabsUI';
 import styled from 'styled-components';
 import { Recommendations } from '../components/UI/Recommendations';
 import { ContentForProduct } from '../components/UI/ContentForProduct';
+// import { SwiperContent } from '../components/UI/SwiperContent';
 
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -22,7 +23,10 @@ const HomePage = () => {
       <TabsUI titles={titles} onTabChange={setActiveTab}>
         <div className=' mt-10'>
           <Recommendations/>
-          <div className=' mt-[100px]'><ContentForProduct/></div>
+          <div className=' mt-[100px]'>
+            <ContentForProduct/>
+            {/* <SwiperContent/> */}
+          </div>
         </div>
         <div>
           <Recommendations/>
