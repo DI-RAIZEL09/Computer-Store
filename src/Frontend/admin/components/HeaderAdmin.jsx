@@ -12,7 +12,7 @@ const HeaderAdmin = () => {
         <div className=' rounded-full bg-[#49DCFF]'><img src={lupa} alt="" className=' p-3 flex justify-center items-center'/></div>      
       </section>
 
-      <section className=' flex items-center gap-4'>
+      <section className=' flex items-center gap-4 cursor-pointer hover:-translate-x-1 hover:scale-105 hover:transition hover:duration-300 hover:ease-out'>
         <h3>Администратор</h3>
         <img src={admin} alt="" className=' h-[35px]'/>
       </section>

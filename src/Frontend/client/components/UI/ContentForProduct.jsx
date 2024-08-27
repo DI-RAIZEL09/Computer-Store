@@ -1,7 +1,3 @@
-import som from '/public/assets/svg/som.svg';
-import info from '/public/assets/svg/info.svg';
-import setting from '/public/assets/svg/setting.svg'
-
 export const ContentForProduct = () => {
   const data = [
     {
@@ -345,14 +341,14 @@ export const ContentForProduct = () => {
                 <h3 className=" text-nowrap pr-6">{item.title}</h3>
                 <p className=" font-sans text-[#49DCFF] flex gap-2">
                   {item.price} 
-                  <img src={som} alt="" />
-                  <img src={info} alt="" />
+                  <img src='/assets/svg/som.svg' alt="" />
+                  <img src='/assets/svg/info.svg' alt="" />
                 </p>
               </div>
               <div className=' w-full grid mobile:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-4 desktop:grid-cols-5 gap-4 pt-5'>
                 <button className=' w-auto px-6 py-2 flex items-center justify-center rounded bg-[#49DCFF] text-[#212936] text-sm font-mono font-medium mobile:col-span-3 tablet:col-span-3 laptop:col-span-4 desktop:col-span-2'>КУПИТЬ</button>
                 <button className=' w-auto px-6 py-2 flex items-center justify-center rounded bg-[#2C3849] text-[#49DCFF] text-sm font-mono font-medium mobile:col-span-2 tablet:col-span-2 laptop:col-span-3 desktop:col-span-2'>ПОДРОБНЕЕ</button>
-                <button className=' w-auto p-[11px] rounded bg-[#2C3849] flex items-center justify-center'><img src={setting} alt="" /></button>
+                <button className=' w-auto p-[11px] rounded bg-[#2C3849] flex items-center justify-center'><img src='/assets/svg/setting.svg' alt="" /></button>
               </div>
               <p className=' pt-7 text-xs text-[#8490A4] z-10 text-wrap'>{item.text}</p>
               <div className=' pt-10 border-b border-b-[#56617c88]'></div>

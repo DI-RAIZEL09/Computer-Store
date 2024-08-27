@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logout from "/public/assets/svg/logout.svg"
+// import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Button } from "@mui/material";
 
 const SideBar = () => {
 
   const [activeSide, setActiveSide] = useState(0);
+  const [isModalOpen, setModalOpen] = useState(false); // Состояние для управления модальным окном
 
   const titles = [
     {
@@ -112,31 +114,78 @@ const SideBar = () => {
   const handleSideBarClick = (index) => {
     setActiveSide(index);
   };
+
+  const handleLogoutClick = () => {
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+
+  const handleConfirmLogout = () => {
+    setModalOpen(false);
+  };
+
   return (
-    <div className=" bg-[#21252bbc] h-screen flex flex-col items-start justify-start px-5 gap-[150px] border-r border-l border-[#49DCFF]">
-      <img src="/public/assets/svg/adminLogo.svg" alt="logo" className=" object-cover pt-7"/>
-      <nav className=" w-full">
-        <ul className=" w-full">
+    <div className="bg-[#21252bbc] h-screen flex flex-col items-start justify-start px-5 gap-[150px] border-r border-l border-[#49DCFF]">
+      <img
+        src="/public/assets/svg/adminLogo.svg"
+        alt="logo"
+        className="object-cover pt-7"
+      />
+      <nav className="w-full">
+        <ul className="w-full">
           {titles.map((title, index) => (
-            <li key={index} className=" w-full py-2 flex justify-start hover:scale-105 hover:transition hover:duretion-300 hover:ease-out">
+            <li
+              key={index}
+              className="w-full py-2 flex justify-start hover:scale-105 hover:transition hover:duration-300 hover:ease-out"
+            >
               <Link
                 to={`/admin/${title.label.toLowerCase()}`}
-                className={` w-full flex items-center justify-between p-3 rounded-lg transition-all ${
-                  activeSide === index ? 'bg-white text-black' : 'text-[#FEFFFF]'
+                className={`w-full flex items-center justify-between p-3 rounded-lg transition-all ${
+                  activeSide === index ? "bg-white text-black" : "text-[#FEFFFF]"
                 }`}
                 onClick={() => handleSideBarClick(index)}
               >
                 {title.icon}
-                <span className=" font-bold w-[140px]">{title.title}</span>
+                <span className="font-bold w-[140px]">{title.title}</span>
               </Link>
             </li>
           ))}
         </ul>
       </nav>
-      <div className=" flex items-center gap-3 hover:scale-105 hover:transition hover:duretion-300 hover:ease-out cursor-pointer">
+      <div
+        className="flex items-center gap-3 hover:scale-105 hover:transition hover:duration-300 hover:ease-out cursor-pointer"
+        onClick={handleLogoutClick}
+      >
         <img src={logout} alt="logout" />
-        <p className=" text-[#49DCFF] ">Выйти</p>
+        <p className="text-[#49DCFF]">Выйти</p>
       </div>
+
+      {/* Модальное окно */}
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-5 rounded-lg shadow-lg w-[300px] text-black">
+            <h2 className="text-lg font-bold mb-4">Подтвердите выход</h2>
+            <p className="mb-4">Вы уверены, что хотите выйти?</p>
+            <div className="flex justify-between gap-2">
+              <button
+                onClick={handleCloseModal}
+                className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-3 px-8 rounded"
+              >
+                Отмена
+              </button>
+              <button
+                onClick={handleConfirmLogout}
+                className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded"
+              >
+                Выйти
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
