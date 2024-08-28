@@ -38,3 +38,19 @@ p, a, span, div {
   font-family: 'Raleway', sans-serif;
   font-weight: 400;
 }
+
+.footer-scrollbar::-webkit-scrollbar {
+  width: 0px;
+  height: 2px;
+}
+
+.footer-scrollbar::-webkit-scrollbar-thumb {
+  width: 50px;
+	background: #49DCFF;
+	border-radius: 1px;
+	margin: -100px auto;
+}
+
+.custom-list-color li::marker {
+  color: #5F697A;
+}
