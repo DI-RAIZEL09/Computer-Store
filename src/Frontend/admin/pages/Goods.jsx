@@ -1,7 +1,11 @@
+import SidebarLayout from "../components/sidebarLayout/SidebarLayout.jsx";
+
 {/* Товары */}
 const Goods = () => {
   return (
-    <div>Goods</div>
+    <div>
+      <SidebarLayout />
+    </div>
   )
 }
 

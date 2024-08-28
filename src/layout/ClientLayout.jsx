@@ -7,9 +7,9 @@ export const ClientLayout = () => {
   return (
     <BodyClientLayout>
     <ClientLayoutContainer>
-        <Header/>
-        <Outlet/>
-        <Footer/>
+          <Header/>
+          <Outlet/>
+          <Footer/>
     </ClientLayoutContainer>
     </BodyClientLayout>
   )
