@@ -1,15 +1,15 @@
 import { Outlet } from "react-router-dom"
 import { styled } from "@mui/material"
-import Header from "../Frontend/client/components/Header"
+// import Header from "../Frontend/client/components/Header"
 import Footer from "../Frontend/client/components/Footer"
 
 export const ClientLayout = () => {
   return (
     <BodyClientLayout>
     <ClientLayoutContainer>
-        <Header/>
-        <Outlet/>
-        <Footer/>
+          {/* <Header/> */}
+          <Outlet/>
+          <Footer/>
     </ClientLayoutContainer>
     </BodyClientLayout>
   )

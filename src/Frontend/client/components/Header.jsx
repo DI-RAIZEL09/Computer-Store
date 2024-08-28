@@ -55,7 +55,7 @@ const Header = () => {
   const subMenuLinks = {'О нас ⁝': ['CompanyPage', 'FAQPage', 'ReviewsPage'],};
 
   return (
-    <div className='flex flex-col sticky top-0'>
+    <div className='flex flex-col sticky top-0 z-[999]'>
       <div className='flex flex-row items-center justify-between bg-[#212936] px-14 py-4'>
         <div className='flex flex-row items-center gap-14'>
           <Link to='HomePage' onClick={handleLogoClick}><img className='h-[50px] pl-[30px]' src={logo} alt="" /></Link>
@@ -112,8 +112,8 @@ const Header = () => {
         </div>
       </div>
 
-      <div className='bg-[#1C232E] flex flex-row items-center justify-between px-14 py-3'>
-        <div className="nav-buttons">
+      <div className='typesOfPC bg-[#1C232E] flex items-center justify-between px-14 py-3 flex-wrap'>
+        <div className="nav-buttons flex flex-wrap gap-[18px]">
           {buttonLabels.map((label, index) => (
             <Link
               key={index}
@@ -133,7 +133,7 @@ const Header = () => {
             ></div>
           )}
         </div>
-        <div className='w-1/2 flex items-center justify-end gap-4'>
+        <div className='items-center justify-end gap-4 flex'>
           <div className={`search-box ${searchOpen ? 'open' : ''}`}>
             <input type="text" placeholder="Поиск..." className="search-text" />
           </div>

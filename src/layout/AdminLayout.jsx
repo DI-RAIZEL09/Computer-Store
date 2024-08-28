@@ -18,7 +18,7 @@ export const AdminLayout = () => {
 };
 
 const BodyAdminLayout = styled('div')(() => ({
-  backgroundImage: "url('./assets/image/Keyboard.jpg')",
+  backgroundImage: "url('/assets/image/Keyboard.jpg')",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
 }));
@@ -29,6 +29,7 @@ const AdminLayoutContainer = styled('div')(() => ({
   gridTemplateRows: '100dvh',
   color: "var(--bg-light)",
   maxWidth: '1200px',
+  paddingInline: '50px',
   margin: '0 auto',
   gap: '5px',
 }));
