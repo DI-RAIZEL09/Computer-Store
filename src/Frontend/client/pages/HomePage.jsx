@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Recommendations } from '../components/UI/Recommendations';
 import { ContentForProduct } from '../components/UI/ContentForProduct';
 
+
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState(0);
   const titles = [
