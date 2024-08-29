@@ -6,6 +6,7 @@ import { Recommendations } from '../components/UI/Recommendations';
 import { ContentForProduct } from '../components/UI/ContentForProduct';
 // import { SwiperContent } from '../components/UI/SwiperContent';
 
+
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState(0);
   const titles = [
