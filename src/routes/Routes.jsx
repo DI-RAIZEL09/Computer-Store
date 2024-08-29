@@ -17,10 +17,32 @@ import ArticlesPage from "../Frontend/client/pages/HeaderPage/ArticlesPage";
 import AboutPage from "../Frontend/client/pages/HeaderPage/AboutPage";
 import ClientsPage from "../Frontend/client/pages/HeaderPage/ClientsPage";
 import ContactsPage from "../Frontend/client/pages/HeaderPage/ContactsPage";
-import Carousel from "../Frontend/client/components/Carousel.jsx";
+import AdminLogin from "../Frontend/auth/AdminLogin";
+import ForgotPassword from "../Frontend/auth/ForgotPassword";
+import ResetPassword from "../Frontend/auth/ResetPassword";
+import CodePassword from "../Frontend/auth/CodePassword";
 
 
 export const router = createBrowserRouter([
+
+    /* Аутентификация */
+    {
+        path: "/login",
+        element: <AdminLogin />
+    },
+    {
+        path: "/forgot-password",
+        element: <ForgotPassword />
+    },
+    {
+        path: "/code-password",
+        element: <CodePassword />
+    },
+    {
+        path: "/reset-password",
+        element: <ResetPassword />
+    },
+
     {
         path: "/admin",
         element: <AdminLayout/>,
@@ -38,7 +60,7 @@ export const router = createBrowserRouter([
                 element: <Delivery/>
             },
             {
-                path: "",
+                path: "Goods",
                 element: <Goods/>
             },
         ]
