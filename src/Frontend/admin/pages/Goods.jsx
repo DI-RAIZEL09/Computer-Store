@@ -1,3 +1,4 @@
+{/* Товары */}
 import React from "react";
 import { MoreVert } from "@mui/icons-material";
 import { IconButton, Menu, MenuItem } from "@mui/material";

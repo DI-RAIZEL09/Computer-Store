@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TabsUI from '../components/UI/TabsUI';
 import styled from 'styled-components';
+import Carousel from "../components/Carousel.jsx";
 import { Recommendations } from '../components/UI/Recommendations';
 import { ContentForProduct } from '../components/UI/ContentForProduct';
 // import { SwiperContent } from '../components/UI/SwiperContent';
@@ -19,6 +20,8 @@ const HomePage = () => {
 
   return (
     <div>
+      <Carousel />
+
       <TabsText>{headers[activeTab]}</TabsText>
       <TabsUI titles={titles} onTabChange={setActiveTab}>
         <div className=' mt-10'>

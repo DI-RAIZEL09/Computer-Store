@@ -1,6 +1,6 @@
-import { createBrowserRouter } from "react-router-dom";
-import { AdminLayout } from "../layout/AdminLayout";
-import { ClientLayout } from "../layout/ClientLayout";
+import {createBrowserRouter} from "react-router-dom";
+import {AdminLayout} from "../layout/AdminLayout";
+import {ClientLayout} from "../layout/ClientLayout";
 
 import Reviews from "../Frontend/admin/pages/Reviews";
 import Orders from "../Frontend/admin/pages/Orders";
@@ -60,7 +60,7 @@ export const router = createBrowserRouter([
                 element: <Delivery/>
             },
             {
-                path: "",
+                path: "Goods",
                 element: <Goods/>
             },
         ]
@@ -71,9 +71,10 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "",
-                element: <HomePage/>
+                element: <HomePage/>,
             },
-            
+
+
             /* HeaderPage */
             {
                 path: "ArticlesPage",
@@ -113,6 +114,7 @@ export const router = createBrowserRouter([
                 path: "BasedAmdPage",
                 element: <BasedAmdPage/>
             },
+
         ]
     },
 ])
