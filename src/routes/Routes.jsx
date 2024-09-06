@@ -17,6 +17,7 @@ import ArticlesPage from "../Frontend/client/pages/HeaderPage/ArticlesPage";
 import AboutPage from "../Frontend/client/pages/HeaderPage/AboutPage";
 import ClientsPage from "../Frontend/client/pages/HeaderPage/ClientsPage";
 import ContactsPage from "../Frontend/client/pages/HeaderPage/ContactsPage";
+import AddProduct from "../Frontend/admin/components/AddProduct";
 
 
 export const router = createBrowserRouter([
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
         path: "/admin",
         element: <AdminLayout/>,
         children: [
+            {
+                path: "",
+                element: <AddProduct />
+            },
             {
                 path: "",
                 element: <Reviews/>

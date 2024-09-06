@@ -14,6 +14,7 @@ export const AdminLayout = () => {
       </HeaderAndContent>
     </AdminLayoutContainer>
     </BodyAdminLayout>
+
   );
 };
 
