@@ -9,10 +9,7 @@ export const ClientLayout = () => {
     <BodyClientLayout>
     <ClientLayoutContainer>
         <Header/>
-        <AddBasket/>
-
         <Outlet/>
-
         <Footer/>
     </ClientLayoutContainer>
     </BodyClientLayout>
@@ -25,7 +22,7 @@ const BodyClientLayout = styled('div')(() => ({
 
 const ClientLayoutContainer = styled('div')(() => ({
   color: "var(--bg-light)",
-  maxWidth: '1200px',
+  maxWidth: '1440px',
   margin: '0 auto',
   backgroundColor: "var(--bg-dark-gray)",
 }))

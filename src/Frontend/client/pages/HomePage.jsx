@@ -3,6 +3,10 @@ import TabsUI from '../components/UI/TabsUI';
 import styled from 'styled-components';
 import OurAdvant from '../components/OurAdvant';
 import OurComp from '../components/OurComp';
+import Carousel from "../components/Carousel.jsx";
+import { Recommendations } from '../components/UI/Recommendations';
+import { ContentForProduct } from '../components/UI/ContentForProduct';
+
 
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -18,17 +22,20 @@ const HomePage = () => {
 
   return (
     <div>
+      <Carousel />
       <TabsText>{headers[activeTab]}</TabsText>
       <TabsUI titles={titles} onTabChange={setActiveTab}>
-        <div>
-          <h2>Ноутбуки</h2>
-          <p>Контент для вкладки Ноутбуки.</p>
-          
-        </div>
-        <div>
-          <h2>ПК</h2>
-          <p>Контент для вкладки ПК.</p>
-        </div>
+
+         <div>
+          <Recommendations/>
+          <div className=' mt-[100px]'><ContentForProduct/></div>
+         </div>
+
+         <div>
+          <Recommendations/>
+          <div className=' mt-[100px]'><ContentForProduct/></div>
+         </div>
+
       </TabsUI>
       <OurAdvant/>
       <OurComp/>

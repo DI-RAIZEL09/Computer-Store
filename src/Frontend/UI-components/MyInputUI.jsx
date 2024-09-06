@@ -9,7 +9,7 @@ const StyledInputContainer = styled('div')({
 });
 
 const StyledLabel = styled('label')(({ labelColor }) => ({
-  color: labelColor || 'white',
+  color: labelColor || '#49DCFF',
   fontSize: 14,
   padding: 2,
 }));
@@ -22,11 +22,8 @@ const StyledInput = styled('input')(({
   focusBoxShadow,
   backgroundColor,
   width,
-  height,
-
-  
+  height
 }) => ({
-  marginBottom:20,
   borderRadius: 2,
   backgroundColor: backgroundColor || 'var(--bg-dark)',
   border: border || 'none',
