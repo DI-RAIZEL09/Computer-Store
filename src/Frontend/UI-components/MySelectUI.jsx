@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 const SelectContainer = styled('div')(() => ({
   display: 'flex',
   flexDirection: 'column',
-  maxWidth: '300px',
+  maxWidth: '600px',
 }));
 
 const StyledLabel = styled('label')(({ labelColor }) => ({
@@ -57,6 +57,7 @@ const MySelectUI = ({
       height: height || 'auto',
       borderRadius: 2,
       fontSize: 12,
+      marginBottom:20
     }),
   };
   

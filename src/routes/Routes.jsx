@@ -17,6 +17,9 @@ import ArticlesPage from "../Frontend/client/pages/HeaderPage/ArticlesPage";
 import AboutPage from "../Frontend/client/pages/HeaderPage/AboutPage";
 import ClientsPage from "../Frontend/client/pages/HeaderPage/ClientsPage";
 import ContactsPage from "../Frontend/client/pages/HeaderPage/ContactsPage";
+
+import AddProduct from "../Frontend/admin/components/AddProduct";
+
 import AdminLogin from "../Frontend/auth/AdminLogin";
 import ForgotPassword from "../Frontend/auth/ForgotPassword";
 import ResetPassword from "../Frontend/auth/ResetPassword";
@@ -48,6 +51,10 @@ export const router = createBrowserRouter([
         element: <AdminLayout/>,
         children: [
             {
+                path: "",
+                element: <AddProduct />
+            },
+            {
                 path: "Reviews",
                 element: <Reviews/>
             },
@@ -63,6 +70,11 @@ export const router = createBrowserRouter([
                 path: "Goods",
                 element: <Goods/>
             },
+            /* Children Goods */
+            {
+                path: "AddProduct",
+                element: <AddProduct/>
+            }
         ]
     },
     {

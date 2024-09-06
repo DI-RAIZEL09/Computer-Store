@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import TabsUI from '../components/UI/TabsUI';
 import styled from 'styled-components';
+import OurAdvant from '../components/OurAdvant';
+import OurComp from '../components/OurComp';
 import Carousel from "../components/Carousel.jsx";
 import { Recommendations } from '../components/UI/Recommendations';
 import { ContentForProduct } from '../components/UI/ContentForProduct';
-// import { SwiperContent } from '../components/UI/SwiperContent';
 
 
 const HomePage = () => {
@@ -22,21 +23,22 @@ const HomePage = () => {
   return (
     <div>
       <Carousel />
-
       <TabsText>{headers[activeTab]}</TabsText>
       <TabsUI titles={titles} onTabChange={setActiveTab}>
-        <div className=' mt-10'>
-          <Recommendations/>
-          <div className=' mt-[100px]'>
-            <ContentForProduct/>
-            {/* <SwiperContent/> */}
-          </div>
-        </div>
-        <div>
+
+         <div>
           <Recommendations/>
           <div className=' mt-[100px]'><ContentForProduct/></div>
-        </div>
+         </div>
+
+         <div>
+          <Recommendations/>
+          <div className=' mt-[100px]'><ContentForProduct/></div>
+         </div>
+
       </TabsUI>
+      <OurAdvant/>
+      <OurComp/>
     </div>
   );
 };
