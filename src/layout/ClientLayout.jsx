@@ -3,6 +3,8 @@ import { styled } from "@mui/material"
 import Header from "../Frontend/client/components/Header"
 import Footer from "../Frontend/client/components/Footer"
 import Breadcrumbs from "../Frontend/client/components/UI/Breadcrumbs"
+import AddBasket from "../Frontend/client/components/AddBasket"
+
 
 export const ClientLayout = () => {
   return (
