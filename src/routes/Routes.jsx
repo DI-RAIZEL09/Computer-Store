@@ -1,6 +1,6 @@
-import {createBrowserRouter} from "react-router-dom";
-import {AdminLayout} from "../layout/AdminLayout";
-import {ClientLayout} from "../layout/ClientLayout";
+import { createBrowserRouter, Outlet } from "react-router-dom";
+import { AdminLayout } from "../layout/AdminLayout";
+import { ClientLayout } from "../layout/ClientLayout";
 
 import Reviews from "../Frontend/admin/pages/Reviews";
 import Orders from "../Frontend/admin/pages/Orders";
@@ -18,12 +18,12 @@ import AboutPage from "../Frontend/client/pages/HeaderPage/AboutPage";
 import ClientsPage from "../Frontend/client/pages/HeaderPage/ClientsPage";
 import ContactsPage from "../Frontend/client/pages/HeaderPage/ContactsPage";
 
-import AddProduct from "../Frontend/admin/components/AddProduct";
-
 import AdminLogin from "../Frontend/auth/AdminLogin";
 import ForgotPassword from "../Frontend/auth/ForgotPassword";
 import ResetPassword from "../Frontend/auth/ResetPassword";
 import CodePassword from "../Frontend/auth/CodePassword";
+import AddProduct from "../Frontend/admin/components/GoodsLayout/AddProduct";
+import GoodsLayout from "../Frontend/admin/components/GoodsLayout/GoodsLayout";
 
 
 export const router = createBrowserRouter([
@@ -51,30 +51,37 @@ export const router = createBrowserRouter([
         element: <AdminLayout/>,
         children: [
             {
-                path: "",
-                element: <AddProduct />
-            },
-            {
-                path: "Reviews",
+                path: "reviews",
                 element: <Reviews/>
             },
             {
-                path: "Orders",
+                path: "orders",
                 element: <Orders/>
             },
             {
-                path: "Delivery",
+                path: "delivery",
                 element: <Delivery/>
             },
             {
-                path: "Goods",
-                element: <Goods/>
+                path: "goods",
+                element: <Outlet/>,
+                children: [
+                    {
+                        path: "",
+                        element: <Goods/>,
+                    },
+                    {
+                        path: "goods-layout",
+                        element: <GoodsLayout/>
+                    },             
+                    /* Children Goods */
+                    {
+                        path: ":id",
+                        element: <AddProduct/>
+                    }
+                ]
             },
-            /* Children Goods */
-            {
-                path: "AddProduct",
-                element: <AddProduct/>
-            }
+            
         ]
     },
     {
@@ -85,45 +92,43 @@ export const router = createBrowserRouter([
                 path: "",
                 element: <HomePage/>,
             },
-
-
             /* HeaderPage */
             {
-                path: "ArticlesPage",
+                path: "articlesPage",
                 element: <ArticlesPage/>
             },
             {
-                path: "AboutPage",
+                path: "aboutPage",
                 element: <AboutPage/>
             },
             {
-                path: "ClientsPage",
+                path: "clientsPage",
                 element: <ClientsPage/>
             },
             {
-                path: "ContactsPage",
+                path: "contactsPage",
                 element: <ContactsPage/>
             },
 
             /* HeaderPCPage */
             {
-                path: "ConfigurationPage",
+                path: "configurationPage",
                 element: <ConfigurationPage/>
             },
             {
-                path: "InexpensivePage",
+                path: "inexpensivePage",
                 element: <InexpensivePage/>
             },
             {
-                path: "GamingPage",
+                path: "gamingPage",
                 element: <GamingPage/>
             },
             {
-                path: "PowerfulPage",
+                path: "powerfulPage",
                 element: <PowerfulPage/>
             },
             {
-                path: "BasedAmdPage",
+                path: "basedAmdPage",
                 element: <BasedAmdPage/>
             },
 

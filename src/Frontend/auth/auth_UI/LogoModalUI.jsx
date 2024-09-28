@@ -8,9 +8,9 @@ const LogoModalUI = ({ open, children }) => (
     aria-describedby="modal-description"
   >
     <Container>
-      <LogoImg>
+      <div className='m-10'>
         <img src="assets/svg/Logo.svg" alt="LogoModal" />
-      </LogoImg>
+      </div>
       <ModalContent>
         {children}
       </ModalContent>
@@ -24,6 +24,7 @@ LogoModalUI.propTypes = {
 };
 
 export default LogoModalUI;
+
 
 const ModalStyled = styled(Modal)({
   display: 'flex',
@@ -52,8 +53,4 @@ const ModalContent = styled('div')({
   background: 'var(--bg-dark)',
   borderRadius: '4px',
   position: 'relative',
-});
-
-const LogoImg = styled('div')({
-  margin: '40px',
 });

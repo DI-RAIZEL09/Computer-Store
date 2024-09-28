@@ -10,34 +10,43 @@ export const AdminLayout = () => {
       <SideBar/>
       <HeaderAndContent>
         <HeaderAdmin/>
-        <Outlet/>
+        <OutletContent>
+          <Outlet/>
+        </OutletContent>
       </HeaderAndContent>
     </AdminLayoutContainer>
     </BodyAdminLayout>
-
   );
 };
 
-const BodyAdminLayout = styled('div')(() => ({
+const BodyAdminLayout = styled('div')({
   backgroundImage: "url('/assets/image/Keyboard.jpg')",
-  backgroundRepeat: "no-repeat",
+  backgroundAttachment: "fixed",
+  backgroundPosition: "center",
   backgroundSize: "cover",
-}));
+});
 
-const AdminLayoutContainer = styled('div')(() => ({
+const AdminLayoutContainer = styled('div')({
   display: 'grid',
   gridTemplateColumns: '15em 1fr',
-  gridTemplateRows: '100dvh',
   color: "var(--bg-light)",
   maxWidth: '1200px',
-  paddingInline: '50px',
   margin: '0 auto',
-  gap: '5px',
-}));
+});
 
-const HeaderAndContent = styled('div')(() => ({
+const HeaderAndContent = styled('div')({
   display: 'grid',
   gridTemplateRows: 'auto 1fr',
-}));
+  margin: '4px',
+});
+
+const OutletContent = styled('div')({
+  display: 'grid',
+  minHeight: '70vh',
+  padding: "24px 12px",
+  overflowY: 'auto',
+  overflowX: 'hidden',
+  height: '640px'
+});
 
 export default AdminLayout;

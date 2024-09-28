@@ -1,16 +1,15 @@
 import { Outlet } from "react-router-dom"
 import { styled } from "@mui/material"
-import Header from "../Frontend/client/components/Header"
 import Footer from "../Frontend/client/components/Footer"
 import Breadcrumbs from "../Frontend/client/components/UI/Breadcrumbs"
-import AddBasket from "../Frontend/client/components/AddBasket"
+import HeaderClientTop from "./headerUsers/HeaderClientTop"
 
 
 export const ClientLayout = () => {
   return (
     <BodyClientLayout>
     <ClientLayoutContainer>
-      <Header/>
+      <HeaderClientTop/>
         <div className="sticky top-36">
           <Breadcrumbs
             customNames={{

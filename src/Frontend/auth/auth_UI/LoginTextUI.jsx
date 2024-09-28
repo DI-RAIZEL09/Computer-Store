@@ -1,7 +1,14 @@
 import PropTypes from 'prop-types';
 
-const LoginTextUI = ({ title, subtitle, ...props }) => (
-  <div style={{...props}} className="flex flex-col text-center">
+const LoginTextUI = ({ 
+  title,
+  subtitle,
+  ...props
+}) => (
+  <div 
+    style={{...props}}
+    className="flex flex-col text-center"
+  >
     <h1 className="text-3xl font-semibold leading-snug tracking-wide">
       {title}
     </h1>

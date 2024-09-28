@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -14,43 +14,47 @@
   --bg-blue: #49DCFF;
   --bg-gray: #8490A4;
   --bg-dark-hover: rgba(255, 255, 250, 0.1);
+  --sb-size: 2px;
 }
 
 *,
 *:before,
 *:after {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-body {
-  font-family: "Raleway";
-  margin: 0 auto;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Raleway';
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 500;
 }
 
-p, a, span, div {
-  font-family: 'Raleway', sans-serif;
+p,
+a,
+span,
+div,
+button {
   font-weight: 400;
+  border-radius: 2px;
 }
 
-.footer-scrollbar::-webkit-scrollbar {
-  width: 0px;
-  height: 2px;
+*::-webkit-scrollbar {
+  width: var(--sb-size);
+  height: var(--sb-size);
 }
 
-.footer-scrollbar::-webkit-scrollbar-thumb {
-  width: 50px;
-	background: #49DCFF;
-	border-radius: 1px;
-	margin: -100px auto;
+*::-webkit-scrollbar-track {
+  background: var(--bg-dark-gray);
+  border-radius: 0px;
 }
 
-.custom-list-color li::marker {
-  color: #5F697A;
+*::-webkit-scrollbar-thumb {
+  background: var(--bg-blue);
+  border-radius: 20px;
 }

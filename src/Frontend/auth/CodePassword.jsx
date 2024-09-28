@@ -1,10 +1,10 @@
 import { Box, Grid } from '@mui/material';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import LoginTextUI from './auth_UI/LoginTextUI';
 import LoginButtonUI from './auth_UI/LoginButtonUI';
 import LogoModalUI from './auth_UI/LogoModalUI';
+import PropTypes from 'prop-types';
 
 const CustomInput = ({ value, onChange, onKeyDown, inputRef, hasError }) => {
   return (
@@ -77,15 +77,7 @@ const CodePassword = () => {
   };
 
   return <LogoModalUI open={true}>
-      <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-        gap='1.5em'
-        maxWidth="440px"
-        padding="24px"
-      >
+      <Box className="flex flex-col items-center gap-6 max-w-md p-6">
         <LoginTextUI
           title="Введите 4-значный код"
           subtitle="На адрес электронной почты, который вы указали, должен был прийти четырехзначный код."

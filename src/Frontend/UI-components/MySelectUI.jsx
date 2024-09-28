@@ -4,6 +4,7 @@ import Select, { components } from 'react-select';
 import { ArrowDropDown, ArrowDropUp } from '@mui/icons-material';
 import PropTypes from 'prop-types';
 
+
 const SelectContainer = styled('div')(() => ({
   display: 'flex',
   flexDirection: 'column',
@@ -57,7 +58,6 @@ const MySelectUI = ({
       height: height || 'auto',
       borderRadius: 2,
       fontSize: 12,
-      marginBottom:20
     }),
   };
   

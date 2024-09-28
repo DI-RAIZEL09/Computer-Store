@@ -24,18 +24,29 @@ const StyledButton = styled(Button)({
   },
 });
 
-const LoginButtonUI = ({ isSubmitting, disabled, name, ...props }) => {
+
+const LoginButtonUI = ({
+  isSubmitting,
+  disabled,
+  name,
+  ...props
+}) => {
   return (
-    <StyledButton type="submit" variant="contained" disabled={disabled || isSubmitting} {...props}>
+    <StyledButton
+      type="submit"
+      variant="contained"
+      disabled={disabled || isSubmitting}
+      {...props}
+    >
       {isSubmitting ? <LoadingSpinnerUI /> : name}
     </StyledButton>
   );
 };
 
 LoginButtonUI.propTypes = {
-    isSubmitting: PropTypes.bool.isRequired,
-    disabled: PropTypes.bool,
-    name: PropTypes.string,
+  isSubmitting: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
+  name: PropTypes.string,
 }
 
 export default LoginButtonUI;
