@@ -47,6 +47,12 @@ const MySelectUI = ({
   options=[] 
 }) => {
   const [selectedOption, setSelectedOption] = useState(null);
+
+  // Логирование изменения выбранного значения
+  const handleChange = (option) => {
+    console.log('Selected option:', option); // Логируем выбранное значение
+    setSelectedOption(option); // Устанавливаем состояние
+  };
   
   const appliedStyles = {
     ...customStyles,
@@ -65,9 +71,9 @@ const MySelectUI = ({
     <SelectContainer>
       {label && <StyledLabel labelColor={labelColor}>{label}</StyledLabel>}
       <Select
-        value={selectedOption}
-        onChange={setSelectedOption}
-        options={options}
+        value={selectedOption} // Передаем текущую выбранную опцию
+        onChange={handleChange} // Обработчик изменения выбора
+        options={options} // Опции для выбора
         styles={appliedStyles}
         components={{ DropdownIndicator }}
         placeholder={placeholder || ""}
