@@ -143,9 +143,12 @@ const Header = () => {
             onClick={handleSearchClick}
             className={`lupa ${searchOpen ? 'active' : ''}`}
           />
-          <div className='hover:scale-110 hover:transform-ease-in-out hover:duration-200'>            
+          <Link
+            className='hover:scale-110 hover:transform-ease-in-out hover:duration-200'
+            to="OrderPage"
+            >            
             <Cart itemCount={cartItemCount} />
-          </div>
+          </Link>
         </div>
       </div>
     </div>

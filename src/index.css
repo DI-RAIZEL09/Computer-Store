@@ -54,3 +54,7 @@ p, a, span, div {
 .custom-list-color li::marker {
   color: #5F697A;
 }
+/* 
+* {
+  border: 1px solid green;
+} */

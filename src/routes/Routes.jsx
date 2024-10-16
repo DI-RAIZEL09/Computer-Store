@@ -17,6 +17,7 @@ import ArticlesPage from "../Frontend/client/pages/HeaderPage/ArticlesPage";
 import AboutPage from "../Frontend/client/pages/HeaderPage/AboutPage";
 import ClientsPage from "../Frontend/client/pages/HeaderPage/ClientsPage";
 import ContactsPage from "../Frontend/client/pages/HeaderPage/ContactsPage";
+import { OrderPage } from "../Frontend/client/components/basket-orders/OrderPage";
 
 
 export const router = createBrowserRouter([
@@ -90,6 +91,14 @@ export const router = createBrowserRouter([
                 path: "BasedAmdPage",
                 element: <BasedAmdPage/>
             },
+
+            // OrderPage
+
+            {
+                path: "OrderPage",
+                element: <OrderPage/>
+            },
+
         ]
     },
 ])

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 
 
-const TabsUI = ({ titles, children, onTabChange }) => {
+const TabsUI = ({ titles, children, onTabChange, background }) => {
   const [activeTab, setActiveTab] = useState(0);
   
   const handleTabClick = (index) => {
@@ -27,7 +27,7 @@ const TabsUI = ({ titles, children, onTabChange }) => {
           </TabButton>
         ))}
       </TabsHeader>
-      <TabContent>
+      <TabContent background={background}>
         {React.Children.map(children, (child, index) => (
           <TabPane key={index} isActive={index === activeTab}>
             {child}
@@ -47,13 +47,14 @@ TabsUI.propTypes = {
   ).isRequired,
   children: PropTypes.node.isRequired,
   onTabChange: PropTypes.func.isRequired,
+  background: PropTypes.string
 };
 
 export default TabsUI;
 
 
 const TabsContainer = styled('div')(() => ({
-  background: 'var(--bg-dark)'
+  background: 'var(--bg-dark)' 
 }));
 
 const TabsHeader = styled('div')({
@@ -65,7 +66,7 @@ const TabButton = styled('button')(({ isActive }) => ({
   position: 'relative',
   cursor: 'pointer',
   background: isActive ? 'var(--bg-dark-gray)' : 'var(--bg-dark-blue)',
-  width: '20%',
+  width: 'clamp(300px, 20vw, 600px)', 
   height: '60px',
   transition: 'all 0.3s ease',
   overflow: 'visible',
@@ -93,10 +94,10 @@ const IconWrapper = styled('div')(({ isActive }) => ({
   },
 }));
 
-const TabContent = styled('div')({
+const TabContent = styled('div')(({ background }) => ({
   padding: '24px',
-  background: 'var(--bg-dark-gray)',
-});
+  background: background || 'var(--bg-dark-gray)',
+}));
 
 const TabPane = styled('div')(({ isActive }) => ({
   display: isActive ? 'block' : 'none',

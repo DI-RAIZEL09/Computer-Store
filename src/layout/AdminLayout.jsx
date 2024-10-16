@@ -29,7 +29,7 @@ const AdminLayoutContainer = styled('div')(() => ({
   gridTemplateColumns: '15em 1fr',
   gridTemplateRows: '100dvh',
   color: "var(--bg-light)",
-  // width: '1200px',
+  maxidth: '1200px',
   paddingInline: '50px',
   margin: '0 auto',
   gap: '5px',

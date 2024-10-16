@@ -21,7 +21,7 @@ const BodyClientLayout = styled('div')(() => ({
 
 const ClientLayoutContainer = styled('div')(() => ({
   color: "var(--bg-light)",
-  // width: '1440px',
+  maxWidth: '1440px',
   margin: '0 auto',
   backgroundColor: "var(--bg-dark-gray)",
 }))
