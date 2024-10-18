@@ -1,6 +1,11 @@
 import { styled, TextField } from '@mui/material';
 
-const TextFieldUI = styled(TextField)(() => ({
+const TextFieldUI = styled(({ value, ...other }) => (
+  <TextField 
+    value={value}
+    {...other}
+  />
+))(() => ({
   width: '100%',
   '& .MuiOutlinedInput-root': {
     backgroundColor: 'var(--bg-dark-gray)',

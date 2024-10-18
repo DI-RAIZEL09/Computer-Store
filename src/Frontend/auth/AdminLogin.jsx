@@ -1,111 +1,105 @@
-import { useState } from 'react';
-import { Formik, Form, Field } from 'formik';
+import React from 'react';
 import * as Yup from 'yup';
-import { Snackbar, Alert, Box, styled } from '@mui/material';
+import { login } from '../../Backend/store/auth/auth.thunk';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Formik, Field, Form } from 'formik';
+import { Box, styled } from '@mui/material';
 
-import LogoModalUI from './auth_UI/LogoModalUI';
-import TextFieldUI from './auth_UI/TextFieldUI';
-import LoginTextUI from './auth_UI/LoginTextUI';
 import LoginButtonUI from './auth_UI/LoginButtonUI';
 import PasswordUI from './auth_UI/PasswordUI';
+import TextFieldUI from './auth_UI/TextFieldUI';
+import LogoModalUI from './auth_UI/LogoModalUI';
+import LoginTextUI from './auth_UI/LoginTextUI';
+import { ToastContainer } from 'react-toastify';
 
-const LoginSchema = Yup.object().shape({
-  email: Yup.string().email('Недействительный адрес электронной почты').required('Введите адрес электронной почты'),
-  password: Yup.string().required('Неправильный пароль'),
+
+const validationSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Недействительный адрес электронной почты')
+    .required('Введите адрес электронной почты'),
+  password: Yup.string()
+    .required('Введите пароль'),
 });
 
 
 const AdminLogin = () => {
-  const [alertOpen, setAlertOpen] = useState(false);
-  const [SwitchChecked, setSwitchChecked] = useState(false);
-  const [passwordValue, setPasswordValue] = useState('');
+  const [switchChecked, setSwitchChecked] = React.useState(false);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  
-  const SwitchChange = (event) => {
-    setSwitchChecked(event.target.checked);
-  };
-  
-  const handleAlertClose = () => {
-    setAlertOpen(false);
+
+  const onSubmit = (values) => {
+    dispatch(login({ userData: values, navigate }));
   };
 
-  return <>
+  return (
     <LogoModalUI open={true}>
-    <LoginTextUI title="Добро пожаловать!" subtitle="Войдите в свой аккаунт" />
+      <LoginTextUI
+        title="Добро пожаловать!"
+        subtitle="Войдите в свой аккаунт!"
+      />
       <Formik
         initialValues={{ email: '', password: '' }}
-        validationSchema={LoginSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          console.log('Форма успешно отправлена:', values);
-          setTimeout(() => {
-            setAlertOpen(true);
-            setSubmitting(false);
-          }, 500),
-          setTimeout(() => {
-            navigate('/client');
-          }, 1500);
-        }}
-        >
-        {({ isSubmitting, handleChange, handleBlur, touched, errors }) => (
-          <Form autoComplete='off'>
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          isValid,
+          dirty,
+          handleBlur,
+          handleChange,
+          handleSubmit
+        }) => (
+          <Form onSubmit={handleSubmit}>
             <Field
               as={TextFieldUI}
-              variant="outlined"
-              margin="normal"
               id="email"
-              label="E-mail"
               name="email"
-              autoComplete="email"
-              onChange={handleChange}
-              onBlur={handleBlur}
+              margin="normal"
+              label="E-mail"
               error={touched.email && Boolean(errors.email)}
               helperText={touched.email && errors.email}
             />
             <PasswordUI
-              variant="outlined"
-              margin="normal"
+              id="password"
               name="password"
               label="Пароль"
-              id="password"
-              passwordValue={passwordValue}
-              handleChange={(e) => {
-                handleChange(e);
-                setPasswordValue(e.target.value);
-              }}
+              margin="normal"
+              value={values.password}
+              handleChange={handleChange}
               handleBlur={handleBlur}
-              touched={touched}
-              errors={errors}
+              error={touched.password && Boolean(errors.password)}
+              helperText={touched.password && errors.password}
             />
             <FormFooter>
               <Box className="flex items-center gap-2 text-zinc-400">
-                <CustomSwitch type='checkbox' checked={SwitchChecked} onChange={SwitchChange} />
-                Запомнить
+                <CustomSwitch
+                  type="checkbox"
+                  checked={switchChecked}
+                  onChange={(event) => setSwitchChecked(event.target.checked)}
+                />
+                  Запомнить
               </Box>
-              <Box className="text-cyan-400 cursor-pointer" onClick={() => navigate('/forgot-password')}>
+              <Box
+                className="text-cyan-400 cursor-pointer" 
+                onClick={() => navigate('/forgot-password')}
+              >
                 Забыли пароль?
               </Box>
             </FormFooter>
             <LoginButtonUI
-              isSubmitting={isSubmitting}
-              disabled={!touched.email || Boolean(errors.email) || Boolean(errors.password)}
               name="Войти"
+              disabled={!isValid || !dirty}
             />
           </Form>
         )}
       </Formik>
+      <ToastContainer />
     </LogoModalUI>
-    <Snackbar
-      open={alertOpen}
-      autoHideDuration={1500}
-      onClose={handleAlertClose}
-      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-    >
-      <Alert onClose={handleAlertClose} severity="success">
-        Форма успешно отправлена
-      </Alert>
-    </Snackbar>
-  </>
+  );
 };
 
 export default AdminLogin;
@@ -131,7 +125,7 @@ const CustomSwitch = styled("input")({
 
   "&:checked": {
     background: "var(--bg-blue)",
-    border: "2px solid var(bg-gray)",
+    border: "2px solid var(--bg-gray)",
   },
 
   "&:after": {

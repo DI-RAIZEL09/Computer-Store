@@ -1,12 +1,8 @@
 import styled from "styled-components";
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import ConstructionIcon from "@mui/icons-material/Construction";
-import MemoryIcon from "@mui/icons-material/Memory";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import CartIconStack from "./CartIconStack";
 import PropTypes from "prop-types";
+import { BottomNavigation, BottomNavigationAction, Menu } from "@mui/material";
+import { Construction, Memory, Search } from "@mui/icons-material";
 
 
 const BottomNavigationClient = ({ value, onChange, openModal }) => {
@@ -30,23 +26,23 @@ const BottomNavigationClient = ({ value, onChange, openModal }) => {
       >
         <BottomNavigationAction
           label="Конфигуратор ПК"
-          value="recents"
-          icon={<ConstructionIcon />}
+          value="configurationPage"
+          icon={<Construction />}
         />
         <BottomNavigationAction
           label="Недорогие ПК"
-          value="cheap"
-          icon={<MemoryIcon />}
+          value="inexpensivePage"
+          icon={<Memory />}
         />
         <BottomNavigationAction
           label="Меню"
           value="menu"
-          icon={<MenuIcon />}
+          icon={<Menu />}
         />
         <BottomNavigationAction
           label="Поиск"
           value="search"
-          icon={<SearchIcon />}
+          icon={<Search />}
           onClick={openModal}
         />
         <BottomNavigationAction

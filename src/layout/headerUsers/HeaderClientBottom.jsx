@@ -54,8 +54,8 @@ const HeaderClientBottom = () => {
   }, [modalIsOpen]);
 
   const navigationItems = [
-    { label: "Конфигуратор ПК", icon: <ConstructionIcon />, value: "recents" },
-    { label: "Недорогие ПК", icon: <MemoryIcon />, value: "cheap" },
+    { label: "Конфигуратор ПК", icon: <ConstructionIcon />, value: "configurationPage" },
+    { label: "Недорогие ПК", icon: <MemoryIcon />, value: "inexpensivePage" },
     { label: "Меню", icon: <MenuIconComponent />, value: "menu" },
     { label: "Поиск", icon: <SearchIcon />, value: "search", fullWidth: true },
     { label: "Корзина", icon: <CartIconStack />, value: "cart" },

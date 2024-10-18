@@ -6,30 +6,45 @@ import Modal from "./HeaderModal";
 import HeaderClientBottom from "./HeaderClientBottom";
 import { MdSubdirectoryArrowRight } from "react-icons/md";
 import BishkekPoint from "./BishkekPoint";
+import { Link, useLocation } from "react-router-dom";
 
 const menuItems = [
   {
     title: "О НАС",
     modalContent: [
-      { key: "faq", text: "FAQ" },
-      { key: "about_company", text: "О КОМПАНИИ" },
-      { key: "reviews", text: "ОТЗЫВЫ" },
+      { key: "faq", text: "FAQ", path: "/faq" },
+      { key: "about_company", text: "О КОМПАНИИ", path: "/about-company" },
+      { key: "reviews", text: "ОТЗЫВЫ", path: "/reviews" },
     ],
   },
   {
     title: "КЛИЕНТАМ",
     modalContent: [
-      { key: "support", text: "ТЕХ.ПОДДЕРЖКА" },
-      { key: "delivery_payment", text: "ДОСТАВКА И ОПЛАТА" },
-      { key: "warranty", text: "ГАРАНТИЯ" },
+      { key: "support", text: "ТЕХ.ПОДДЕРЖКА", path: "/support" },
+      { key: "delivery_payment", text: "ДОСТАВКА И ОПЛАТА", path: "/delivery-payment" },
+      { key: "warranty", text: "ГАРАНТИЯ", path: "/warranty" },
     ],
   },
 ];
 
 const HeaderClientTop = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const location = useLocation(); // to track the current route
+
+  useEffect(() => {
+    // On route change, find the selected index based on the path
+    const currentItem = menuItems.find((item) =>
+      item.modalContent.some((modalItem) => modalItem.path === location.pathname)
+    );
+    if (currentItem) {
+      const index = menuItems.indexOf(currentItem);
+      setSelectedIndex(index);
+    }
+  }, [location]);
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
@@ -53,31 +68,34 @@ const HeaderClientTop = () => {
             <PhoneAndroidIcon sx={{ color: "#fff" }} />
             <H4>8 (800) 234 99 19</H4>
           </Number>
-          <Point>
-            <BishkekPoint/>
-          </Point>
+          <BishkekPoint />
         </LEFT>
         <RIGHT>
-          <H2>СТАТЬИ</H2>
+          <StyledLink to="articlesPage">СТАТЬИ</StyledLink>
           {menuItems.map((item, index) => (
             <H2
               key={index}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
+              className={selectedIndex === index ? "active" : ""}
             >
               {item.title} <MoreVertIcon sx={{ fontSize: 12 }} />
               <Modal isVisible={hoveredIndex === index}>
-                {index === 0 && <ModalHeader />}
-                {index === 1 && <ModalHeader2 />}
                 {item.modalContent.map((modalItem) => (
-                  <ModalButton key={modalItem.key}>
-                    <MdSubdirectoryArrowRight /> {modalItem.text}
-                  </ModalButton>
+                  <StyledLink
+                    to={modalItem.path}
+                    key={modalItem.key}
+                    onClick={() => setSelectedIndex(index)}
+                  >
+                    <ModalButton>
+                      <MdSubdirectoryArrowRight /> {modalItem.text}
+                    </ModalButton>
+                  </StyledLink>
                 ))}
               </Modal>
             </H2>
           ))}
-          <H2>КОНТАКТЫ</H2>
+          <StyledLink to="contactsPage">КОНТАКТЫ</StyledLink>
         </RIGHT>
       </HEADER>
       <HeaderClientBottom />
@@ -87,6 +105,7 @@ const HeaderClientTop = () => {
 
 export default HeaderClientTop;
 
+// Styles
 
 const HEADER = styled.div`
   height: 6vw;
@@ -98,42 +117,17 @@ const HEADER = styled.div`
   left: 0;
   right: 0;
   z-index: 1000;
-
-  @media (max-width: 1024px) {
-    height: 9vw;
-  }
-  @media (max-width: 768px) {
-    position: fixed;
-    transform: translateY(${({ isVisible }) => (isVisible ? "0" : "-100%")});
-    height: 10vw;
-  }
-  @media (max-width: 410px) {
-    height: 15vw;
-  }
 `;
 
 const Logo = styled.img`
   width: 5vw;
   margin-right: 50px;
   margin-left: 51px;
-  @media (max-width: 768px) {
-    width: 7vw;
-  }
-  @media (max-width: 520px) {
-    width: 10vw;
-  }
-  @media (max-width: 410px) {
-    width: 15vw;
-  }
 `;
 
 const LEFT = styled.div`
   display: flex;
   gap: 20px;
-  @media (max-width: 768px) {
-    justify-content: space-between;
-    width: 100vw;
-  }
 `;
 
 const H4 = styled.h4`
@@ -144,14 +138,6 @@ const H4 = styled.h4`
   &:hover {
     color: #fff;
   }
-
-  @media (max-width: 520px) {
-    font-size: 19px;
-  }
-
-  @media (max-width: 390px) {
-    font-size: 14px;
-  }
 `;
 
 const Number = styled.div`
@@ -159,19 +145,6 @@ const Number = styled.div`
   gap: 8px;
   align-items: center;
   cursor: pointer;
-  @media (max-width: 768px) {
-    padding-right: 5vw;
-  }
-`;
-
-const Point = styled.div`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  gap: 8px;
-  @media (max-width: 768px) {
-    display: none;
-  }
 `;
 
 const RIGHT = styled.div`
@@ -179,26 +152,15 @@ const RIGHT = styled.div`
   gap: 1vw;
   align-items: center;
   padding-right: 5vw;
-  @media (max-width: 860px) {
-    display: none;
-  }
 `;
 
 const H2 = styled.h2`
   position: relative;
   cursor: pointer;
-`;
 
-const ModalHeader = styled.div`
-  height: 2px;
-  width: 128%;
-  background-color: #49dcff;
-`;
-
-const ModalHeader2 = styled.div`
-  height: 2px;
-  width: 124%;
-  background-color: #49dcff;
+  &.active {
+    color: #49dcff;
+  }
 `;
 
 const ModalButton = styled.button`
@@ -212,6 +174,18 @@ const ModalButton = styled.button`
   width: 124%;
   font-size: 12px;
   transition: color 0.9s ease, filter 0.9s ease;
+
+  &:hover {
+    color: #49dcff;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5vw;
+  cursor: pointer;
+  transition: color 0.3s ease;
 
   &:hover {
     color: #49dcff;

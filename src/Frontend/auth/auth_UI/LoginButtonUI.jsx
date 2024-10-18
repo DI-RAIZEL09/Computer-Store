@@ -2,6 +2,9 @@ import { Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import LoadingSpinnerUI from './LoadingSpinnerUI';
 import PropTypes from 'prop-types';
+import StatusResponse from '../../../Backend/utils/StatusResponse';
+import { useSelector } from 'react-redux';
+import { selectLogin } from '../../../Backend/store/auth/auth.selectors';
 
 
 const StyledButton = styled(Button)({
@@ -13,7 +16,7 @@ const StyledButton = styled(Button)({
   fontWeight: '600',
   marginTop: '2em',
   letterSpacing: '0.03em',
-  transition: "all 0.5s ease-in-out",
+  transition: 'all 0.5s ease-in-out',
   '&:hover': {
     backgroundColor: 'var(--bg-blue)',
     boxShadow: '0px 0px 30px 0px var(--bg-blue)',
@@ -24,29 +27,38 @@ const StyledButton = styled(Button)({
   },
 });
 
-
 const LoginButtonUI = ({
-  isSubmitting,
-  disabled,
   name,
+  disabled,
+  onClick,
+  disableLoadingCheck = false,
   ...props
 }) => {
+  const loading = useSelector(selectLogin).status === StatusResponse.LOADING;
   return (
     <StyledButton
       type="submit"
       variant="contained"
-      disabled={disabled || isSubmitting}
+      disabled={!disableLoadingCheck && (loading || disabled)}
+      onClick={onClick}
       {...props}
-    >
-      {isSubmitting ? <LoadingSpinnerUI /> : name}
+      >
+      {!disableLoadingCheck && loading ? <LoadingSpinnerUI /> : name}
     </StyledButton>
-  );
+  )
 };
 
 LoginButtonUI.propTypes = {
-  isSubmitting: PropTypes.bool.isRequired,
+  status: PropTypes.oneOf([
+    StatusResponse.LOADING,
+    StatusResponse.SUCCESS,
+    StatusResponse.ERROR,
+    StatusResponse.INITIAL,
+  ]),
   disabled: PropTypes.bool,
-  name: PropTypes.string,
-}
+  onClick: PropTypes.func,
+  disableLoadingCheck: PropTypes.bool,
+  name: PropTypes.string.isRequired,
+};
 
 export default LoginButtonUI;
