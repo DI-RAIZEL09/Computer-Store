@@ -47,6 +47,10 @@ const MySelectUI = ({
   options=[] 
 }) => {
   const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleChange = (option) => {
+    setSelectedOption(option); 
+  };
   
   const appliedStyles = {
     ...customStyles,
@@ -61,14 +65,13 @@ const MySelectUI = ({
     }),
   };
   
-  // console.log(options)
   return (
     <SelectContainer>
       {label && <StyledLabel labelColor={labelColor}>{label}</StyledLabel>}
       <Select
-        value={selectedOption}
-        onChange={setSelectedOption}
-        options={options}
+        value={selectedOption} 
+        onChange={handleChange} 
+        options={options} 
         styles={appliedStyles}
         components={{ DropdownIndicator }}
         placeholder={placeholder || ""}
@@ -115,10 +118,10 @@ const customStyles = {
     color: state.isFocused ? '#ffffff' : '#49DCFF',
     padding: '5px 10px',
     margin: 0,
-    height: '30px',  // Уменьшаем высоту опции
+    height: '30px',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-start',  // Устанавливаем выравнивание по левому краю
+    justifyContent: 'flex-start',
     '&:hover': {
       backgroundColor: '#1C232E',
       color: '#ffffff',
@@ -128,15 +131,15 @@ const customStyles = {
     ...provided,
     backgroundColor: '#2A323D',
     borderRadius: '8px',
-    padding: 0,  // Убираем отступы внутри меню
+    padding: 0, 
     margin: '4px 0',
   }),
   menuList: (provided) => ({
     ...provided,
-    padding: 0,  // Убираем отступы внутри списка
-    margin: 0,   // Убираем внешние отступы
+    padding: 0, 
+    margin: 0,
     display: 'flex',
-    flexDirection: 'column',  // Вертикальное выравнивание
+    flexDirection: 'column', 
   }),
   singleValue: (provided) => ({
     ...provided,
@@ -146,6 +149,3 @@ const customStyles = {
     display: 'none',
   }),
 };
-
-
-
