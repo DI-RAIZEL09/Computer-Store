@@ -61,6 +61,7 @@ const MySelectUI = ({
     }),
   };
   
+  // console.log(options)
   return (
     <SelectContainer>
       {label && <StyledLabel labelColor={labelColor}>{label}</StyledLabel>}
@@ -106,26 +107,45 @@ const customStyles = {
     '&:hover': {
       border: 'none',
     },
+    minHeight: '40px',
   }),
   option: (provided, state) => ({
     ...provided,
     backgroundColor: state.isFocused ? '#1C232E' : '#2A323D',
     color: state.isFocused ? '#ffffff' : '#49DCFF',
+    padding: '5px 10px',
+    margin: 0,
+    height: '30px',  // Уменьшаем высоту опции
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',  // Устанавливаем выравнивание по левому краю
     '&:hover': {
       backgroundColor: '#1C232E',
       color: '#ffffff',
     },
   }),
-  singleValue: (provided) => ({
-    ...provided,
-    color: '#FFFFFF',
-  }),
   menu: (provided) => ({
     ...provided,
     backgroundColor: '#2A323D',
     borderRadius: '8px',
+    padding: 0,  // Убираем отступы внутри меню
+    margin: '4px 0',
+  }),
+  menuList: (provided) => ({
+    ...provided,
+    padding: 0,  // Убираем отступы внутри списка
+    margin: 0,   // Убираем внешние отступы
+    display: 'flex',
+    flexDirection: 'column',  // Вертикальное выравнивание
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    color: '#FFFFFF',
   }),
   indicatorSeparator: () => ({
     display: 'none',
   }),
 };
+
+
+
