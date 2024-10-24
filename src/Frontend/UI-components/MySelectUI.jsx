@@ -47,6 +47,10 @@ const MySelectUI = ({
   options=[] 
 }) => {
   const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleChange = (option) => {
+    setSelectedOption(option); 
+  };
   
   const appliedStyles = {
     ...customStyles,
@@ -65,9 +69,9 @@ const MySelectUI = ({
     <SelectContainer>
       {label && <StyledLabel labelColor={labelColor}>{label}</StyledLabel>}
       <Select
-        value={selectedOption}
-        onChange={setSelectedOption}
-        options={options}
+        value={selectedOption} 
+        onChange={handleChange} 
+        options={options} 
         styles={appliedStyles}
         components={{ DropdownIndicator }}
         placeholder={placeholder || ""}
@@ -106,24 +110,40 @@ const customStyles = {
     '&:hover': {
       border: 'none',
     },
+    minHeight: '40px',
   }),
   option: (provided, state) => ({
     ...provided,
     backgroundColor: state.isFocused ? '#1C232E' : '#2A323D',
     color: state.isFocused ? '#ffffff' : '#49DCFF',
+    padding: '5px 10px',
+    margin: 0,
+    height: '30px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     '&:hover': {
       backgroundColor: '#1C232E',
       color: '#ffffff',
     },
   }),
-  singleValue: (provided) => ({
-    ...provided,
-    color: '#FFFFFF',
-  }),
   menu: (provided) => ({
     ...provided,
     backgroundColor: '#2A323D',
     borderRadius: '8px',
+    padding: 0, 
+    margin: '4px 0',
+  }),
+  menuList: (provided) => ({
+    ...provided,
+    padding: 0, 
+    margin: 0,
+    display: 'flex',
+    flexDirection: 'column', 
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    color: '#FFFFFF',
   }),
   indicatorSeparator: () => ({
     display: 'none',

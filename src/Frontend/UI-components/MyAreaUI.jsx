@@ -20,6 +20,8 @@ const StyledTextArea = styled('textarea')(({
   focusBorderColor,
   focusBoxShadow,
   backgroundColor,
+  fontSize,
+  color,
   width,
   height,
   border
@@ -27,12 +29,12 @@ const StyledTextArea = styled('textarea')(({
   borderRadius: 2,
   backgroundColor: backgroundColor || 'var(--bg-dark)',
   border: border || 'none',
-  fontSize: 10,
+  fontSize: fontSize || 10,
   borderColor: borderColor || '#FFFFFF',
   width: width || '100%',
   height: height || 'auto',
   padding: 8,
-  color: 'var(--bg-light)',
+  color: color || 'var(--bg-light)',
   transition: theme.transitions.create(['border-color', 'box-shadow']),
   resize: 'none',
   overflowY: 'auto',
@@ -58,11 +60,13 @@ const MyAreaUI = ({
   backgroundColor,
   placeholder,
   width,
+  color,
   onChange,
   onClick,
   height,
   labelColor,
   maxLength,
+  fontSize,
   ...props
 }) => {
   return (
@@ -72,6 +76,8 @@ const MyAreaUI = ({
         onChange={onChange}
         onClick={onClick}
         borderColor={borderColor}
+        color={color}
+        fontSize={fontSize}
         focusBorderColor={focusBorderColor}
         focusBoxShadow={focusBoxShadow}
         backgroundColor={backgroundColor}
@@ -92,8 +98,10 @@ MyAreaUI.propTypes = {
   border: PropTypes.string,
   onClick: PropTypes.func,
   onChange: PropTypes.func,
+  color: PropTypes.string,
   focusBorderColor: PropTypes.string,
   focusBoxShadow: PropTypes.string,
+  fontSize: PropTypes.string,
   placeholder: PropTypes.string,
   width: PropTypes.string,
   height: PropTypes.string,
