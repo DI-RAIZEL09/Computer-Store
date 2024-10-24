@@ -37,6 +37,7 @@ const HeaderClientTop = () => {
 
   useEffect(() => {
     // On route change, find the selected index based on the path
+    
     const currentItem = menuItems.find((item) =>
       item.modalContent.some((modalItem) => modalItem.path === location.pathname)
     );

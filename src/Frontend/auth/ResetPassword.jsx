@@ -28,7 +28,10 @@ const ResetPassword = () => {
   const dispatch = useDispatch();
   
   const onSubmit = (values) => {
-    dispatch(resetPassword({ new_password: values.new_password, navigate }));
+    dispatch(resetPassword({
+      new_password: values,
+      navigate
+    }));
   };
 
   return <LogoModalUI open={true}>
