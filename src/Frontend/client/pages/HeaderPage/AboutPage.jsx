@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import { styled } from '@mui/material';
 import TabsUI from '../../components/UI/TabsUI.jsx';
-import AboutCompani from '../../components/aboutPage/ui/AboutCompani.jsx'; 
-import AboutFAQ from '../../components/aboutPage/ui/AboutFAQ.jsx';
-import AboutReviews from '../../components/aboutPage/ui/AboutReviews.jsx'
-import { components } from 'react-select';
+import AboutFAQ from '../../components/aboutPage/AboutFAQ.jsx';
+import AboutReviews from '../../components/aboutPage/AboutReviews.jsx'
+import AboutCompany from '../../components/aboutPage/AboutCompany.jsx';
 
 
 const AboutPage = () => {
   const [activeTab, setActiveTab] = useState(0);
   const titles = [
-    { label: 'О компании', component:<AboutCompani/>, icon: <svg width="10" height="10" viewBox="0 0 12 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    { label: 'О компании', component: <AboutCompany />, icon: <svg width="10" height="10" viewBox="0 0 12 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path d="M11.5725 9.85157C11.5728 9.96357 11.5424 10.0735 11.4847 10.1694C11.4269 10.2654 11.3439 10.3436 11.2448 10.3957L6.35398 13.1443C6.25151 13.2186 6.1277 13.2577 6.00112 13.2557C5.87454 13.2577 5.75073 13.2186 5.64826 13.1443L0.757478 10.3957C0.658339 10.3436 0.575369 10.2654 0.517581 10.1694C0.459793 10.0735 0.429396 9.96357 0.429693 9.85157V4.28015C0.429226 4.168 0.459543 4.05787 0.51734 3.96176C0.575137 3.86565 0.658199 3.78724 0.757478 3.73507L5.64826 0.986503C5.75073 0.912159 5.87454 0.87306 6.00112 0.875074C6.13112 0.875074 6.25462 0.912217 6.35398 0.986503L11.2448 3.73507C11.344 3.78724 11.4271 3.86565 11.4849 3.96176C11.5427 4.05787 11.573 4.168 11.5725 4.28015V9.85157ZM6.00112 2.20572L4.83112 2.86872L8.47762 4.96729L9.69033 4.28015L6.00112 2.20572ZM2.31191 4.28015L6.00112 6.35365L7.21476 5.673L3.57476 3.56793L2.31191 4.28015ZM1.66748 9.48572L5.38176 11.5787V7.42429L1.66748 5.33872V9.48572ZM10.3348 9.48572V5.33872L6.62048 7.42429V11.5787L10.3348 9.48572Z" fill="currentColor"/>
     </svg> },
     { label: 'FAQ', component: <AboutFAQ />, icon: <svg width="15" height="14" viewBox="0 0 15 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -21,36 +20,38 @@ const AboutPage = () => {
     </svg> },
   ];
   const headers = ['Философия гейминга от Amin store', 'FAQ', 'Отзывы клиентов'];
-  const backgrounds = [
-    'url"/assets/image/Klavia.png"'
-  ];
+  const backgrounds = ['url"/assets/image/Klavia.png"'];
 
 
   return (
     <div>
       <TabsText>{headers[activeTab]}</TabsText>
-      <TabsUI useSelect={true} titles={titles} onTabChange={setActiveTab}>
-
-      {activeTab === 0 && (
-        <ContentWrapper background={backgrounds[0]}>
-          <AboutCompani />
-        </ContentWrapper>
-      )}
-           <div className='m-[50px 30px]'>
-          <AboutFAQ/>
-         </div> 
-         <div className='m-[50px 30px]'>
-          <AboutReviews/>
-         </div> 
-
+      <TabsUI
+        titles={titles} 
+        onTabChange={setActiveTab}
+        useSelect={true} 
+      >
+        {activeTab === 0 && (
+          <ContentWrapper background={backgrounds[0]}>
+            <AboutCompany />
+          </ContentWrapper>
+        )}
+          <div className='m-[50px 30px]'>
+            <AboutFAQ/>
+          </div>
+          <div className='m-[50px 30px]'>
+            <AboutReviews/>
+          </div>
       </TabsUI>
     </div>
   );
 };
 
 export default AboutPage;
+
+
 const ContentWrapper = styled('div')(({ background }) => ({
-//  backgroundImage: background,,
+  backgroundImage: background,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
@@ -68,6 +69,3 @@ const TabsText = styled('h1')({
   padding: '20px 0',
   background: 'var(--bg-dark)',
 })
-// icon: <svg width="15" height="14" viewBox="0 0 15 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg
-//  icon: <svg width="15" height="14" viewBox="0 0 15 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg
-// icon: <svg width="10" height="10" viewBox="0 0 12 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg
