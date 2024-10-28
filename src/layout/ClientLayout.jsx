@@ -1,13 +1,17 @@
 import { Outlet } from "react-router-dom"
 import { styled } from "@mui/material"
-import Header from "../Frontend/client/components/Header"
+import Header from "./usersHeader/Header"
 import Footer from "../Frontend/client/components/Footer"
+import BottomBar from "./usersHeader/BottomBar"
 
 export const ClientLayout = () => {
   return (
     <BodyClientLayout>
     <ClientLayoutContainer>
         <Header/>
+        <div className=" md:hidden bottom-0 fixed z-50 w-full">
+          <BottomBar/>
+        </div>
         <Outlet/>
         <Footer/>
     </ClientLayoutContainer>
