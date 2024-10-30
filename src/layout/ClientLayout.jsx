@@ -2,14 +2,15 @@ import { Outlet } from "react-router-dom"
 import { styled } from "@mui/material"
 import Footer from "../Frontend/client/components/Footer"
 import Breadcrumbs from "../Frontend/client/components/UI/Breadcrumbs"
-import HeaderClientTop from "./headerUsers/HeaderClientTop"
+import BottomBar from "./headerUsers/BottomBar"
+import Header from "./headerUsers/Header"
 
 
 export const ClientLayout = () => {
   return (
     <BodyClientLayout>
     <ClientLayoutContainer>
-      <HeaderClientTop/>
+      <Header/>
         <div className="sticky top-0 z-50">
           <Breadcrumbs
             customNames={{
@@ -26,6 +27,7 @@ export const ClientLayout = () => {
               'BasedAmdPage': 'Мощные ПК на базе AMD Ryzen 9 (АМД)',
             }}
           />
+          <BottomBar />
         </div>
       <Outlet/>
       <Footer/>
