@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom"
 import { styled } from "@mui/material"
-import Footer from "../Frontend/client/components/Footer"
+import Footer from "./footerUsers/Footer"
 import Breadcrumbs from "../Frontend/client/components/UI/Breadcrumbs"
 import BottomBar from "./headerUsers/BottomBar"
 import Header from "./headerUsers/Header"
@@ -29,7 +29,7 @@ export const ClientLayout = () => {
           />
           <BottomBar />
         </div>
-      <Outlet/>
+        <Outlet/>
       <Footer/>
     </ClientLayoutContainer>
     </BodyClientLayout>
