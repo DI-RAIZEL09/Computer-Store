@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import PhoneAndroidIcon from "@mui/icons-material/PhoneAndroid";
+import MoreVert from "@mui/icons-material/MoreVert";
+import PhoneAndroid from "@mui/icons-material/PhoneAndroid";
 import Modal from "./HeaderModal";
 import HeaderClientBottom from "./HeaderClientBottom";
 import { MdSubdirectoryArrowRight } from "react-icons/md";
 import BishkekPoint from "./BishkekPoint";
+import { useNavigate } from "react-router-dom";
+
+
 
 const menuItems = [
   {
@@ -30,6 +33,7 @@ const HeaderClientTop = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const navigate = useNavigate()
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
@@ -50,7 +54,7 @@ const HeaderClientTop = () => {
         <LEFT>
           <Logo src="/assets/svg/Logo.svg" alt="logo" />
           <Number>
-            <PhoneAndroidIcon sx={{ color: "#fff" }} />
+            <PhoneAndroid sx={{ color: "#fff" }} />
             <H4>8 (800) 234 99 19</H4>
           </Number>
           <Point>
@@ -58,14 +62,15 @@ const HeaderClientTop = () => {
           </Point>
         </LEFT>
         <RIGHT>
-          <H2>СТАТЬИ</H2>
+          <H2 onClick={() => navigate('articlesPage')}>СТАТЬИ</H2>
           {menuItems.map((item, index) => (
             <H2
               key={index}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-            >
-              {item.title} <MoreVertIcon sx={{ fontSize: 12 }} />
+              onClick={() => item.title === "КЛИЕНТАМ" && navigate("clientsPage")
+              }            >
+              {item.title} <MoreVert sx={{ fontSize: 12 }} />
               <Modal isVisible={hoveredIndex === index}>
                 {index === 0 && <ModalHeader />}
                 {index === 1 && <ModalHeader2 />}
@@ -77,7 +82,7 @@ const HeaderClientTop = () => {
               </Modal>
             </H2>
           ))}
-          <H2>КОНТАКТЫ</H2>
+          <H2 onClick={() => navigate('contactsPage')}>КОНТАКТЫ</H2>
         </RIGHT>
       </HEADER>
       <HeaderClientBottom />

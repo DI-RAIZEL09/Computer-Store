@@ -10,7 +10,7 @@ export const ClientLayout = () => {
     <BodyClientLayout>
     <ClientLayoutContainer>
       <HeaderClientTop/>
-        <div className="sticky top-36">
+        <div className="sticky top-0">
           <Breadcrumbs
             customNames={{
             /* HeaderPage */
@@ -40,7 +40,6 @@ const BodyClientLayout = styled('div')(() => ({
 
 const ClientLayoutContainer = styled('div')(() => ({
   color: "var(--bg-light)",
-  maxWidth: '1440px',
   margin: '0 auto',
   backgroundColor: "var(--bg-dark-gray)",
 }))

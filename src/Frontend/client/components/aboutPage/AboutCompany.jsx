@@ -1,6 +1,5 @@
-import React from 'react';
 
-const AboutCompani = () => {
+const AboutCompany = () => {
   return (
     <div className='text-[#8490A4] flex flex-col gap-12 md:flex-wrap'>
       <div className=' flex justify-between items-center flex-col gap-5'>
@@ -62,4 +61,4 @@ const AboutCompani = () => {
   );
 }
 
-export default AboutCompani;
+export default AboutCompany;
