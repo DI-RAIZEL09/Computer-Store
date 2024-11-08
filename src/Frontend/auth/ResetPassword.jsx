@@ -2,7 +2,7 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { Box } from '@mui/material';
 import { West } from '@mui/icons-material';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { resetPassword } from '../../Backend/store/auth/auth.thunk';
 
@@ -26,10 +26,12 @@ const PasswordSchema = Yup.object().shape({
 const ResetPassword = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+  const {state} = useLocation();
+  console.log(state)
   const onSubmit = (values) => {
     dispatch(resetPassword({
       new_password: values,
+      token: state,
       navigate
     }));
   };

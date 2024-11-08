@@ -22,7 +22,6 @@ export const forgotPassword = createAsyncThunk(
   'auth/forgotPassword',
   async ({ email, navigate, again }, { rejectWithValue }) => {
     try {
-      console.log(email);
       if (!email) {console.log("Please enter your email")}
       const response = await api.postForgotReq(email);
       if (!again) { 
@@ -44,8 +43,7 @@ export const resetPasswordCode = createAsyncThunk(
     console.log(code);
     try {
       const response = await api.postCodeReq(code);
-      console.log(response);
-      navigate("/reset-password");
+      navigate("/reset-password", {state: response.data.token});
       toast.success('Пароль успешно сброшен введите новый пароль!');
       return response.data;
     } catch (error) {
@@ -58,9 +56,9 @@ export const resetPasswordCode = createAsyncThunk(
 
 export const resetPassword = createAsyncThunk(
   'auth/new-password',
-  async ({ new_password, navigate }, { rejectWithValue }) => {
+  async ({ new_password, token, navigate }, { rejectWithValue }) => {
     try {
-      const response = await api.postResetPasswordReq(new_password);
+      const response = await api.postResetPasswordReq(new_password, token);
       toast.success('Пароль успешно изменен!');
       navigate("/login");
       return response.data;
