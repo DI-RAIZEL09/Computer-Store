@@ -4,7 +4,6 @@ import Select, { components } from 'react-select';
 import { ArrowDropDown, ArrowDropUp } from '@mui/icons-material';
 import PropTypes from 'prop-types';
 
-
 const SelectContainer = styled('div')(() => ({
   display: 'flex',
   flexDirection: 'column',
@@ -35,7 +34,6 @@ DropdownIndicator.propTypes = {
   }).isRequired,
 };
 
-
 const MySelectUI = ({
   border,
   width,
@@ -44,12 +42,16 @@ const MySelectUI = ({
   labelColor,
   background,
   placeholder,
-  options=[] 
+  onChange,
+  options = [],
 }) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleChange = (option) => {
     setSelectedOption(option); 
+    if (onChange) {
+      onChange(option);
+    }
   };
   
   const appliedStyles = {
@@ -90,14 +92,17 @@ MySelectUI.propTypes = {
   height: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      value: PropTypes.string,
+      value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+      ]),
       label: PropTypes.string,
     })
   ),
+  onChange: PropTypes.func,
 };
 
 export default MySelectUI;
-
 
 const customStyles = {
   control: (provided, { isFocused }) => ({
@@ -148,4 +153,4 @@ const customStyles = {
   indicatorSeparator: () => ({
     display: 'none',
   }),
-};
+};  

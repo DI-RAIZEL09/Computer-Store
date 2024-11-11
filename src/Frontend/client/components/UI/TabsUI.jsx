@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import useMediaQuery from '@mui/material/useMediaQuery'; // Хук для адаптива
 import MySelectUI from '../../../UI-components/MySelectUI';
 
-const TabsUI = ({ titles, children, onTabChange, background, useSelect }) => {
+const TabsUI = ({ titles, children, onTabChange, background, useSelect = false }) => {
   const [activeTab, setActiveTab] = useState(0);
-
+  
   // Используем media query для мобильных экранов
   const isMobile = useMediaQuery('(max-width: 470px)');
 
@@ -74,10 +74,6 @@ TabsUI.propTypes = {
   onTabChange: PropTypes.func.isRequired,
   background: PropTypes.string,
   useSelect: PropTypes.bool,
-};
-
-TabsUI.defaultProps = {
-  useSelect: false,
 };
 
 export default TabsUI;

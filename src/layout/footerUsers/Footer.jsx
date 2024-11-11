@@ -1,5 +1,6 @@
 import { styled } from "@mui/system";
 import { Instagram, Telegram, WhatsApp } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -9,20 +10,22 @@ const Footer = () => {
           <div className="flex gap-2">
               <WhatsApp />
               <Telegram />
-            <a href="https://www.instagram.com/amin_stors?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-              <Instagram />
-            </a>
+              <Link to="https://www.instagram.com/amin_stors?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                <Instagram />
+              </Link>
           </div>
-          <span className="font-sans py-3 text-[#49DCFF] pr-3">г. Бишкек, Буденного 138/1 Токтогула 211</span>
-          <span className="text-[#5F697A] text-sm pr-3">Обработка и прием заказов по телефону:</span>
-          <span className="text-[#49DCFF] font-sans text-lg">+ 996 700 99 19 23</span>
-          <span className="text-[#5F697A] text-sm pr-3">Пн-Пт: 09:00 - 20:00</span>
-          <span className="text-[#5F697A] text-sm pr-3">Сб-Вс: 09:00 - 20:00</span>
+          <div className="flex flex-col gap-2 text-nowrap">
+            <p className="font-sans py-3 text-[#49DCFF] pr-3">г. Бишкек, Буденного 138/1 <br /> Токтогула 211</p>
+            <p className="text-[#5F697A] text-sm pr-3">Обработка и прием заказов по <br /> телефону:</p>
+            <p className="text-[#49DCFF] font-sans text-lg">+ 996 700 99 19 23</p>
+            <p className="text-[#5F697A] text-sm pr-3">Пн-Пт: 09:00 - 20:00</p>
+            <p className="text-[#5F697A] text-sm pr-3">Сб-Вс: 09:00 - 20:00</p>
+          </div>
         </ContactSection>
 
         <CatalogSection>
           <h1 className="text-[#5F697A]">Каталог AMIN STORS</h1>
-          <CustomScrollbar className="footer-scrollbar">
+          <CustomScrollbar>
             <CustomList>
               <li>АКСЕССУАРЫ ДЛЯ ПК</li>
               <li>КОМПЬЮТЕРЫ В РАССРОЧКУ</li>
@@ -102,20 +105,11 @@ const CatalogSection = styled("article")({
 const CustomScrollbar = styled("div")({
   display: "flex",
   justifyContent: "space-between",
-  alignItems: "start",
   paddingTop: "1.75rem",
   paddingBottom: "0.5rem",
   overflowX: "auto",
   whiteSpace: "nowrap",
   gap: "1.25rem",
-  "&::-webkit-scrollbar": {
-    width: "0px",
-    height: "2px",
-  },
-  "&::-webkit-scrollbar-thumb": {
-    background: "#49DCFF",
-    borderRadius: "1px",
-  },
 });
 
 const CustomList = styled("ul")({

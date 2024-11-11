@@ -3,18 +3,19 @@ import { styled } from '@mui/material';
 import HeaderAdmin from '../Frontend/admin/components/HeaderAdmin';
 import SideBar from '../Frontend/admin/components/SideBar';
 
+
 export const AdminLayout = () => {
   return (
     <BodyAdminLayout>
-    <AdminLayoutContainer>
-      <SideBar/>
-      <HeaderAndContent>
-        <HeaderAdmin/>
-        <OutletContent>
-          <Outlet/>
-        </OutletContent>
-      </HeaderAndContent>
-    </AdminLayoutContainer>
+      <AdminLayoutContainer>
+        <SideBar/>
+        <HeaderAndContent>
+          <HeaderAdmin/>
+          <OutletContent>
+            <Outlet/>
+          </OutletContent>
+        </HeaderAndContent>
+      </AdminLayoutContainer>
     </BodyAdminLayout>
   );
 };

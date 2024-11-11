@@ -26,23 +26,25 @@ import AddProduct from "../Frontend/admin/components/GoodsLayout/AddProduct";
 import GoodsLayout from "../Frontend/admin/components/GoodsLayout/GoodsLayout";
 
 
+
 export const router = createBrowserRouter([
 
     /* Аутентификация */
+   
     {
-        path: "/login",
-        element: <AdminLogin />
+        path: "login",
+        element: <AdminLogin />,
     },
     {
-        path: "/forgot-password",
+        path: "forgot-password",
         element: <ForgotPassword />
     },
     {
-        path: "/code-password",
+        path: "code-password",
         element: <CodePassword />
     },
     {
-        path: "/reset-password",
+        path: "reset-password",
         element: <ResetPassword />
     },
 
@@ -84,6 +86,7 @@ export const router = createBrowserRouter([
             
         ]
     },
+
     {
         path: "/client",
         element: <ClientLayout/>,
