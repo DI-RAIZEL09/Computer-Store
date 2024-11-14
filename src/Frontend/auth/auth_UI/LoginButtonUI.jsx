@@ -19,11 +19,13 @@ const StyledButton = styled(Button)({
   transition: 'all 0.5s ease-in-out',
   '&:hover': {
     backgroundColor: 'var(--bg-blue)',
-    boxShadow: '0px 0px 30px 0px var(--bg-blue)',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
   },
   '&:disabled': {
     backgroundColor: '#1A627B',
     color: '#8C8C8C',
+    fontSize: '1.1rem',
+    padding: '0.75rem 2rem',
   },
 });
 

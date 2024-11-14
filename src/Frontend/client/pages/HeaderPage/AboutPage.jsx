@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { styled } from '@mui/material';
 import TabsUI from '../../components/UI/TabsUI.jsx';
-import AboutFAQ from '../../components/aboutPage/AboutFAQ.jsx';
-import AboutReviews from '../../components/aboutPage/AboutReviews.jsx'
-import AboutCompany from '../../components/aboutPage/AboutCompany.jsx';
+import AboutCompany from '../../components/aboutPage/ui/AboutCompany.jsx'; 
+import AboutFAQ from '../../components/aboutPage/ui/AboutFAQ.jsx';
+import AboutReviews from '../../components/aboutPage/ui/AboutReviews.jsx'
 
 
 const AboutPage = () => {
@@ -50,8 +50,8 @@ const AboutPage = () => {
 export default AboutPage;
 
 
-const ContentWrapper = styled('div')(({ background }) => ({
-  backgroundImage: background,
+const ContentWrapper = styled('div')(() => ({
+//  backgroundImage: background,,
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',

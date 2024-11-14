@@ -4,8 +4,8 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import MyAreaUI from '../../../UI-components/MyAreaUI';
-import MyButtonUI from '../../../UI-components/MyButtonUI';
+import MyAreaUI from '../../../../UI-components/MyAreaUI';
+import MyButtonUI from '../../../../UI-components/MyButtonUI';
 import { Rating, Stack } from '@mui/material';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 

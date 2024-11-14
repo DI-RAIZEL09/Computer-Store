@@ -18,6 +18,7 @@ import AboutPage from "../Frontend/client/pages/HeaderPage/AboutPage";
 import ClientsPage from "../Frontend/client/pages/HeaderPage/ClientsPage";
 import ContactsPage from "../Frontend/client/pages/HeaderPage/ContactsPage";
 
+import Registration from "../Frontend/auth/Registration"
 import AdminLogin from "../Frontend/auth/AdminLogin";
 import ForgotPassword from "../Frontend/auth/ForgotPassword";
 import ResetPassword from "../Frontend/auth/ResetPassword";
@@ -26,9 +27,14 @@ import AddProduct from "../Frontend/admin/components/GoodsLayout/AddProduct";
 import GoodsLayout from "../Frontend/admin/components/GoodsLayout/GoodsLayout";
 
 
+
 export const router = createBrowserRouter([
 
     /* Аутентификация */
+    {
+       path: "registration",
+       element:<Registration/>
+    },
     {
         path: "login",
         element: <AdminLogin />,
@@ -86,7 +92,7 @@ export const router = createBrowserRouter([
     },
 
     {
-        path: "/",
+        path: "/client",
         element: <ClientLayout/>,
         children: [
             {

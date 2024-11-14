@@ -8,7 +8,7 @@ const LogoModalUI = ({ open, children }) => (
     aria-describedby="modal-description"
   >
     <Container>
-      <div className='m-10'>
+      <div className=' mb-12'>
         <img src="assets/svg/Logo.svg" alt="LogoModal" />
       </div>
       <ModalContent>
@@ -32,25 +32,55 @@ const ModalStyled = styled(Modal)({
   backgroundImage: 'url(assets/image/Authorization.jpg)',
   backgroundPosition: 'center',
   backgroundSize: 'cover',
+  backgroundBlendMode: 'darken',
+  backgroundColor: 'rgba(0, 0, 0, 0.5)', // затемнение
 });
 
-const Container = styled('div')({
-  position: 'relative',
+
+
+const Container = styled('div')(({ theme }) => ({
   display: 'flex',
+  flexDirection: 'column',
   alignItems: 'center',
   width: '100%',
-  height: '100vh',
-  overflow: 'hidden',
-  flexDirection: 'column',
+  maxWidth: '500px', // Для мобильных
   outline: 'none',
-});
 
-const ModalContent = styled('div')({
+  [theme.breakpoints.up('sm')]: {
+    maxWidth: '700px', // Для планшетов
+  },
+
+  [theme.breakpoints.up('md')]: {
+    maxWidth: '955px', // Для десктопов
+  },
+}));
+
+const ModalContent = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  padding: '3em 5em',
+  padding: '2em',
   color: 'var(--bg-light)',
   background: 'var(--bg-dark)',
-  borderRadius: '4px',
+  borderRadius: '8px',
   position: 'relative',
-});
+  width: '90%', // По умолчанию для маленьких экранов
+  
+
+  // Мобильные устройства
+  [theme.breakpoints.down('sm')]: {
+    padding: '1.5em',
+    width: '90%',
+  },
+
+  // Планшеты
+  [theme.breakpoints.between('sm', 'md')]: {
+    padding: '2.5em',
+    width: '70%',
+  },
+
+  // Десктопы
+  [theme.breakpoints.up('md')]: {
+    padding: '3em 4em',
+    width: '95%',
+  },
+}));
